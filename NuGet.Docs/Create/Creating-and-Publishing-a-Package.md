@@ -294,7 +294,9 @@ NuGet automatically runs scripts based on their file names using the following c
     * The package must have files in the *content* or *lib* folder for *Install.ps1* to run. Just having 
     something in the tools folder will not kick this off.
     * If your package also has an *init.ps1*, *install.ps1* runs **after** *init.ps1*.
+    * [NuGet 3.x] *This script will not be executed in projects managed by project.json*
 * ***Uninstall.ps1*** runs every time a package is uninstalled. 
+	* [NuGet 3.x] *This script will not be executed in projects managed by project.json*
 * These files should be located in the tools directory of your package. 
 * At the top of your file, add this line: **`param($installPath, $toolsPath, $package, $project)`**
     * **`$installPath`** is the path to the folder where the package is installed

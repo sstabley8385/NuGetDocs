@@ -69,6 +69,8 @@ e.g. suppose you want to add all the files from some arbitrary other folder into
         <file src="..\..\SomeRoot\**\*.*" target="" /> 
     </files>
 
+If you include an empty <files /> node in the nuspec, all content files will be omitted from the package and only the lib folder will be included.
+
 <p class="info">
 <strong>Note</strong><br />You need to run 'nuget pack' on the project file, not the nuspec itself. But the nuspec will in fact get picked up.
 </p> 

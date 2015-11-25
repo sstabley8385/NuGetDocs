@@ -128,6 +128,32 @@ For a detailed walkthrough showing how to create and publish NuGet packages from
 see [The easy way to publish NuGet packages with sources](http://blog.davidebbo.com/2011/04/easy-way-to-publish-nuget-packages-with.html) 
 on David Ebbo&#8217;s blog.
 
+### Building a Package at Build Time
+
+It may be advantageous for you to enhance your project build process to include the ability to generate a NuGet package at the completion of a successful build.  You can augment your build script to include the steps necessary to assembly your package once the compilation has completed by adding an AfterBuild target as follows, assuming that you have the nuget.exe utility available in the path:
+
+	<Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'">
+		
+		<Exec Command="nuget pack MyProject.csproj -Prop Configuration=Release"></Exec>
+	
+	</Target>
+ 
+This will package your project with the default information provided in the properties of your project in release mode.  
+
+It may be desired to have a copy of the nuget.exe client downloaded prior to the build process.  To get a fresh nuget.exe, we recommend adding the [MSBuildTasks package](https://www.nuget.org/packages/MSBuildTasks/) to your project in order to enable the WebDownload task.  Add the following lines to your project file in order to force your project to use the WebDownload task and package your project:
+
+	<Import Project="$(MSBuildProjectDirectory)\..\.build\MSBuild.Community.Tasks.targets"/>
+	<Target Name="AfterBuild" Condition=" '$(Configuration)' == 'Release'">
+	
+ 		<!-- Only download a new copy of nuget.exe if we don't have a copy available -->
+		<WebDownload Condition="!Exists('nuget.exe')" Filename="nuget.exe" FileUri="https://dist.nuget.org/win-x86-commandline/latest/nuget.exe" />
+	
+		<Exec Command="nuget pack ClassLibrary7.csproj -Prop Configuration=Release"></Exec>
+	
+	</Target>
+
+You can of course modify the command-line execution to operate in different folders if there are additional files and folders that you want to bundle in your package.  You can add appropriate Copy tasks to this step to place files appropriately that need to be bundled.
+
 ### From a convention based working directory
 Some packages contain more than just assemblies. They may contain 
 

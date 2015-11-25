@@ -128,7 +128,7 @@ For a detailed walkthrough showing how to create and publish NuGet packages from
 see [The easy way to publish NuGet packages with sources](http://blog.davidebbo.com/2011/04/easy-way-to-publish-nuget-packages-with.html) 
 on David Ebbo&#8217;s blog.
 
-### Building a Package at Build Time
+### At Build Time
 
 It may be advantageous for you to enhance your project build process to include the ability to generate a NuGet package at the completion of a successful build.  You can augment your build script to include the steps necessary to assembly your package once the compilation has completed by adding an AfterBuild target as follows, assuming that you have the nuget.exe utility available in the path:
 

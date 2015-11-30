@@ -750,6 +750,41 @@ Gets or sets NuGet config values.
     nuget config -Set HTTP_PROXY=http://127.0.0.1 -Set HTTP_PROXY.USER=domain\user
     nuget.config HTTP_PROXY
 
+## Locals Command
+
+[v3.3] Clears or lists local NuGet resources such as http request cache, packages cache, or machine-wide global packages folder.
+
+	nuget locals <all | http-cache | packages-cache | global-packages> -clear
+
+Locals Command Options
+
+<table>
+	<tr>
+		<td>Clear</td>
+		<td>Clear the resources in the specified cache location</td>
+	</tr>
+	<tr>
+		<td>List</td>
+		<td>List the selected local resources or cache locations</td> 
+	</tr>
+	<tr>
+		<td>Help</td>
+		<td>help</td>
+	</tr>
+	<tr>
+		<td>Verbosity</td>
+		<td>Display the amount of details in the output: normal, quiet, detailed.</td>
+	</tr>
+	<tr>
+		<td>NonInteractive</td>
+		<td>Do not prompt for user input or confirmations.</td>
+	</tr>
+	<tr>
+		<td>ConfigFile</td>
+		<td>he NuGet configuration file. If not specified, file %AppData%\NuGet\NuGet.config is used as configuration file.</td>
+	</tr>
+</table>
+
 ##  Mirror Command
 
 Mirrors a package and its dependencies from the specified source repositories to the target repository.

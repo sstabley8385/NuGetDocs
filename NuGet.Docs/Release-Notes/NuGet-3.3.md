@@ -30,11 +30,15 @@ In this version we introduced the init and add commands to initialize [folder-ba
 
 Content is now supported in project.json managed projects through the new `contentFiles` folder and nuspec `contentFiles` element notation.  This content can be more directly specified by the package author for interactions with project systems.  More information about how to configure contentFiles in a NuSpec document can be found in the [NuSpec Reference](http://docs.nuget.org/Create/NuSpec-References#contentfiles-with-nuget-3.3-and-later).
 
-## Credential Providers
+## NuGet Locals Cache Management 
 
-Starting with NuGet 3.3 we are introducing support for third-party credential providers that allow seamless integration with feeds that maintain their own authentication scheme.  Learn more about [how to create a credential provider and use credential providers at docs.nuget.org](http://docs.nuget.org/Consume/Credential-Providers)  
+The NuGet command-line has been updated to include information about how to manage the local caches on a workstation.  More information about the locals command is available in the [NuGet command-line reference](http://docs.nuget.org/Consume/Command-Line-Reference#locals-command).
 
 ## Fixed Issues
+
+**Notable Issues**
+
+* NuGet now supports restoring packages with a solution file on Mono - [1543](https://github.com/NuGet/Home/issues/1543)
 
 The complete list of issues that were addressed in the 3.3 release can be found on GitHub under the [3.3 milestone](https://github.com/NuGet/Home/issues?q=is%3Aissue+milestone%3A3.3.0+is%3Aclosed).  
 
